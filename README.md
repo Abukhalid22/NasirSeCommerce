@@ -1,5 +1,5 @@
 # NasirSeCommerce
-Ecommerce website using asp.net and paypal as payment
+Responsive Ecommerce website using asp.net and paypal as payment
 
 ## E-Commerce Website Description
 The website is a fully functional e-commerce web application, where it will include a front-end, as well as a back-end. The core functionality of the system is to allow customers to purchase variety of products using the PayPal checkout. The project will have a front-end and back-end functionalities, where the admin can add products and the customers can only purchase those products from the client side. 
