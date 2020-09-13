@@ -1,0 +1,162 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="user.master.cs" Inherits="NasirsClothing.user.user" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Nasir's Shop</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/shop-homepage.css" rel="stylesheet">
+
+     <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <style>
+
+        body{
+            padding-bottom:50px;
+            padding-top:80px;
+        }
+
+        footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+
+  margin-top: 60px; 
+} </style>
+
+</head>
+
+<body>
+    <form id="fi" runat="server">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="Display_Products.aspx">Nasir's Shop</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+
+            <li class="nav-item">
+            <a class="nav-link" href="Display_Products.aspx">Products</a>
+            </li>    
+
+
+            <li class="nav-item">
+            <a class="nav-link" href="registration.aspx">Register</a>
+          </li>
+
+            <%
+                if (Session["user"] == null)
+                {
+                    %>
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="userLogin.aspx">Login</a>
+                    </li>
+
+            <%
+
+                }
+
+                else
+                {
+                    %>
+            
+                    <li class="nav-item">
+                    <a class="nav-link" href="display_order.aspx">Display Order</a>
+                    </li>    
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="logout.aspx">Logout</a>
+                    </li>
+
+            <%
+                }
+
+                %>
+
+            
+          <li class="nav-item">
+              
+            <a class="nav-link" href="view_cart.aspx"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart <br /> <span>Total Items: <asp:Label ID="lblCartTotItem" runat="server" Text="0"></asp:Label></span> <span>Cost: £<asp:Label ID="lblCartTotPrice" runat="server" Text="0"></asp:Label></span></a>
+          </li>
+
+              <!-- Topbar Search -->
+            <li class="nav-item">
+          <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" id="searchtextbox" class="form-control bg-light border-0 small" placeholder="Search for a Product" aria-label="Search" >
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" onclick="search();" >
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+            </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+         <div class="container">
+
+ <!-- Page Content -->
+  <asp:ContentPlaceHolder ID="c1" runat="server"></asp:ContentPlaceHolder>
+  <!-- /.container -->
+     </div>
+
+  <!-- Footer -->
+  <footer class="py-1 bg-dark fixed-bottom">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Nasir's Shop 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+         <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+        </form>
+
+
+    <script type="text/javascript">
+        function search() {
+            window.location = "Display_Products.aspx?search=" + document.getElementById("searchtextbox").value;
+        }
+
+    </script>
+
+</body>
+
+</html>
+
